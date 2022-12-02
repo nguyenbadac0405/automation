@@ -1,0 +1,142 @@
+package com.scripts;
+
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import com.Common;
+import com.frame.ExcelHelpers;
+import com.frame.GetDriver;
+import com.frame.approved_to_complete;
+import com.frame.assign_provider;
+import com.frame.assign_to_approved;
+import com.frame.create_new_case_intake;
+import com.frame.create_new_case_patient;
+import com.frame.getInfo;
+import com.frame.log_out;
+import com.frame.login;
+import com.frame.login_patient_MDL;
+import com.frame.login_patient_MDR;
+import com.frame.new_to_assign;
+import com.frame.search_case;
+
+public class MDL_patient extends DriverFactory {
+
+	login login;
+	GetDriver link;
+	create_new_case_intake new_case_intake;
+	new_to_assign to_assign;
+	assign_to_approved to_approved;
+	approved_to_complete to_complete;
+	search_case search;
+
+	log_out logout;
+	assign_provider ass;
+	create_new_case_patient new_case_patient;
+	login_patient_MDR login_MDR;
+	login_patient_MDL login_MDL;
+	ExcelHelpers excel;
+	getInfo getinfo;
+	
+
+	@Override
+	public void setUpforTest() {
+		link = new GetDriver(driver);
+		pss_login = PageFactory.initElements(driver, login.class);
+//		new_case_intake = PageFactory.initElements(driver, create_new_case_intake.class);
+		new_case_patient = PageFactory.initElements(driver, create_new_case_patient.class);
+		to_assign = PageFactory.initElements(driver, new_to_assign.class);
+		to_approved = PageFactory.initElements(driver, assign_to_approved.class);
+		to_complete = PageFactory.initElements(driver, approved_to_complete.class);
+		search = PageFactory.initElements(driver, search_case.class);
+		ass = PageFactory.initElements(driver, assign_provider.class);
+		logout = PageFactory.initElements(driver, log_out.class);
+		login_MDR = PageFactory.initElements(driver, login_patient_MDR.class);
+		login_MDL = PageFactory.initElements(driver, login_patient_MDL.class);
+//		new_case_patient = PageFactory.initElements(driver, create_new_case_patient.class);
+		excel = new ExcelHelpers();
+		getinfo = PageFactory.initElements(driver, getInfo.class);
+	}
+	@Test
+	public void MDL_patient_new_case() throws Exception {
+		excel.setExcelFile("src/test/resources/MDL.xlsx", "Sheet1");
+		
+		login_MDL.URL_MDL_patient();
+		
+		login_MDL.login_MDL_patient();
+		Common.waitSec(3);
+		
+		new_case_patient.create_new_case_MDL_patient_1();
+		Common.waitSec(3);
+		
+		String name = new_case_patient.find_name_patient_MDL();
+		excel.setCellData(name, 1, 1);
+		new_case_patient.create_new_case_MDL_patient_2();
+		Common.waitSec(3);
+		
+	}
+	@Test
+	public void MDL_patient_to_assign() throws Exception {
+		login.URL_intake();
+		
+		login.pss("111111");
+		Common.waitSec(5);
+		excel.setExcelFile("src/test/resources/MDL.xlsx", "Sheet1");
+		String name = excel.getCellData("name", 1);
+		System.out.println("Patient's name is: "+name);
+		
+		search.search_from_intake(name);
+		Common.waitSec(5);
+		
+		to_assign.new_to_assign_MDL_patient();
+		Common.waitSec(5);
+		
+		String id = to_assign.find_id();
+		Common.waitSec(3);
+		System.out.println("Case_ID: " +id );
+		excel.setCellData(id, 1, 0);
+	}
+	
+	@Test
+	public void MDL_patient_to_approve() throws Exception {
+		excel.setExcelFile("src/test/resources/MDL.xlsx", "Sheet1");
+		String id = excel.getCellData("id", 1);
+		
+		pss_login.URL_intake();
+		
+		login.provider("123456");
+		Common.waitSec(15);
+		search.search_from_intake(id);
+		Common.waitSec(5);
+		
+		to_approved.assign_to_approved_MDL();
+		Common.waitSec(10);
+		
+	}
+	
+	@Test
+	public void complete() throws Exception {
+		excel.setExcelFile("src/test/resources/MDL.xlsx", "Sheet1");
+		String id = excel.getCellData("id", 1);
+		
+		login.URL_intake();		
+		
+		login.pss("111111");
+		Common.waitSec(15);
+		
+		search.search_from_intake(id);
+		Common.waitSec(5);
+		
+		to_complete.complete_case();
+		String[] info = getinfo.get_Info_MDL();
+		excel.setCellData(info[0] + " " + info[1], 1, 1);
+		excel.setCellData(info[0], 1, 2);
+		excel.setCellData(info[1], 1, 3);
+		excel.setCellData(info[2], 1, 4);
+		excel.setCellData(info[3], 1, 5);
+		excel.setCellData(info[4], 1, 6);
+		excel.setCellData(info[5], 1, 7);
+		excel.setCellData(info[6], 1, 8);
+		Common.waitSec(10);
+		
+	}
+}
