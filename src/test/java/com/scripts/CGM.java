@@ -126,7 +126,7 @@ public class CGM extends DriverFactory {
 		login.URL_intake();		
 		
 		login.pss("111111");
-		Common.waitSec(15);
+		Common.waitSec(5);
 		
 		search.search_from_intake(id);
 		Common.waitSec(5);

@@ -2,22 +2,13 @@ package com.scripts;
 
 import java.time.Duration;
 
+import com.frame.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import com.Common;
-import com.frame.FPC_Approved;
-import com.frame.approved_to_complete;
-import com.frame.assign_provider;
-import com.frame.assign_to_approved;
-import com.frame.billing;
-import com.frame.create_new_case_intake;
-import com.frame.log_out;
-import com.frame.login;
-import com.frame.new_to_assign;
-import com.frame.search_case;
 
 public class DriverFactory {
 	WebDriver driver;
@@ -38,18 +29,20 @@ public class DriverFactory {
 	
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();	
 		setUpforTest();
+		RecordVideo.startRecord("CGM_create_case");
 		
 	}
 	
 	@AfterMethod
-	public void tearDown() {
+	public void tearDown() throws Exception {
 		Common.waitSec(2);
 		driver.close();
+		RecordVideo.stopRecord();
 	}
 }
