@@ -35,7 +35,7 @@ public class DriverFactory {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();	
 		setUpforTest();
-		RecordVideo.startRecord("CGM_create_case");
+		RecordVideo.startRecord("CGM_test_core");
 		
 	}
 	

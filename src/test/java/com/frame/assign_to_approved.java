@@ -875,6 +875,8 @@ public class assign_to_approved {
 				.click();
 		Common.waitSec(3);
 		driver.findElement(By.xpath(".//button[text()='Yes']")).click();
+		Common.waitSec(2);
+		driver.findElement(By.xpath(".//span[text()=' No Follow Up']")).click();
 		System.out.println("-------------------------Done Approve----------------------------");
 		Common.waitSec(5);
 	}

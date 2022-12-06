@@ -60,7 +60,7 @@ public class RecordVideo extends ScreenRecorder {
         int width = screenSize.width;
         int height = screenSize.height;
 
-        Rectangle captureSize = new Rectangle(1920, 1080, width, height);
+        Rectangle captureSize = new Rectangle(0, 0, width, height);
 
         GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
                 .getDefaultConfiguration();

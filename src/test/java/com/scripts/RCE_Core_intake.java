@@ -129,7 +129,6 @@ public class RCE_Core_intake extends DriverFactory {
 		Common.waitSec(10);
 
 		to_approved.assign_to_approved_MDL();
-//		System.out.println("xong approved");
 		Common.waitSec(5);
 
 		logout.logout();
