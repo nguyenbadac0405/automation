@@ -11,7 +11,6 @@ import com.frame.GetDriver;
 import com.frame.approve_to_assign_follow_up;
 import com.frame.approved_to_complete;
 import com.frame.assign_provider;
-import com.frame.assign_to_approved;
 import com.frame.billing;
 import com.frame.create_new_case_intake;
 import com.frame.getInfo;
@@ -86,7 +85,6 @@ public class beauty extends DriverFactory {
 		login.URL_intake();
 		login.pss("111111");
 		Common.waitSec(5);
-		
 		String id = excel.getCellData("id", 1);
 		search.search_from_intake(id);
 		Common.waitSec(5);

@@ -1685,19 +1685,6 @@ public class create_new_case_intake {
 		Common.waitSec(1);
 		driver.findElement(By.xpath("//*[@name='data[patient_last_name]']")).sendKeys(last_name);
 		Common.waitSec(1);
-		// date of birth.
-		driver.findElement(By.xpath("//*[@class='form-group has-feedback formio-component formio-component-datetime formio-component-patient_dob  required']/div[1]/div/input[2]")).sendKeys(DOB);
-		Common.waitSec(1);
-		
-		//gender & ethnicity
-		driver.findElement(By.xpath("//*[@value='Male']")).click();
-		Common.waitSec(1);
-		
-		// height & weight
-		driver.findElement(By.xpath("//*[@name='data[patient_height]']")).sendKeys("5.75");
-		Common.waitSec(1);
-		driver.findElement(By.xpath("//*[@name='data[patient_weight]']")).sendKeys("146");
-		Common.waitSec(1);
 				
 		// zip code & street
 		driver.findElement(By.xpath("//*[@name='data[patient_address]']")).sendKeys("q2");
@@ -1706,7 +1693,6 @@ public class create_new_case_intake {
 		Common.waitSec(1);
 				
 		//phone
-		driver.findElement(By.xpath("//input[@value='Cell Phone']")).click();
 		driver.findElement(By.xpath("//input[@name='data[patient_phone]']")).sendKeys("5864565645");
 		Common.waitSec(3);	
 		
@@ -1716,17 +1702,21 @@ public class create_new_case_intake {
 		// submit
 		driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
 		System.out.println("-----------------Done draft case------------------");
-		System.out.println(lab);
 		//draft to new
 		System.out.println("-------------Draft to new----------------");
+		Common.waitSec(3);
+		driver.findElement(By.xpath(".//span[text()='Questionnaire']")).click();
+		Common.waitSec(2);
+		driver.findElement(By.xpath(".//div[@class='radio  form-check']/label/input[1]")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[2]/div[1]/div[1]/label/input")).click();
+		driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+		Common.waitSec(3);
 
 		//medication
-		System.out.println("Check Medication");
-		driver.findElement(By.xpath(".//span[text()='Medications']")).click();
-		Common.waitSec(3);
-		driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[3]/div[3]/div[2]/div[4]/label/input")).click();
-		driver.findElement(By.xpath(".//button[text()='Save']")).click();
-		Common.waitSec(3);
+//		System.out.println("Check Medication");
+//		driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[3]/div[3]/div[2]/div[4]/label/input")).click();
+//		driver.findElement(By.xpath(".//button[text()='Save']")).click();
+//		Common.waitSec(3);
 		
 		//submit
 		driver.findElement(By.xpath(".//div[text()='Submit']")).click();

@@ -1,20 +1,7 @@
 package com.frame;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
-
-import com.Common;
-import com.frame.login;
-import com.frame.approved_to_complete;
-import com.frame.assign_to_approved;
-import com.frame.create_new_case_intake;
-import com.frame.new_to_assign;
-import com.frame.GetDriver;
 
 public class search_case {
 	protected WebDriver driver;

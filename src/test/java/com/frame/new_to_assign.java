@@ -452,29 +452,15 @@ public class new_to_assign {
 	public void Beauty_to_assign() {
 		//compliance
 		Actions action = new Actions(driver);
-		driver.findElement(By.name("data[compliance_verification_verified_patient_name]")).click();
-		driver.findElement(By.name("data[compliance_verification_verified_patient_dob]")).click();
-		driver.findElement(By.name("data[compliance_verification_verified_patient_gender]")).click();
-		driver.findElement(By.name("data[compliance_verification_verified_patient_state]")).click();
-		driver.findElement(By.xpath(".//div[@class='form-group has-feedback formio-component formio-component-radio formio-component-compliance_verification_verified_consent_to_treat_41589  required']/div[1]/div[1]/label[1]/input[1]")).click();
-		driver.findElement(By.xpath(".//div[@class='form-group has-feedback formio-component formio-component-radio formio-component-compliance_verification_verified_consent_to_bill_41589  required']/div[1]/div[1]/label/input")).click();
-		driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+		driver.findElement(By.xpath(".//div[text()='Mark as Pending']")).click();
 		Common.waitSec(2);
 		action.sendKeys(Keys.ENTER).build().perform();
 		Common.waitSec(3);
-		
-		driver.findElement(By.name("data[order_info_textfield]")).sendKeys("test");		
-		driver.findElement(By.name("data[submit]")).click();	
-		Common.waitSec(3);
-		
-		driver.findElement(By.xpath(".//span[text()='Medical History']")).click();
-		Common.waitSec(3);
-		driver.findElement(By.name("data[patient_personal_history_progress_note_confirm_2_sale]")).click();
-		Common.waitSec(3);
 		//selected provider
 		System.out.println("Select Provider");
-		driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/div[4]/div/div/div/div[9]/div/div/div/div[1]/div[2]/div/input")).sendKeys("Dac");
+		driver.findElement(By.xpath("/html/body/div/div[5]/div[2]/div[4]/div/div/div/div[10]/div/div/div/div[1]")).click();
 		Common.waitSec(3);
+		action.sendKeys("dac").build().perform();
 		action.sendKeys(Keys.ENTER).build().perform();
 		Common.waitSec(2);
 		action.sendKeys(Keys.ENTER).build().perform();

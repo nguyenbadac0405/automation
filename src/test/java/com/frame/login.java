@@ -1,5 +1,6 @@
 package com.frame;
 
+import com.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,6 +28,8 @@ public class login {
 		driver.findElement(By.xpath("//*[@id='pwd']")).sendKeys(password);
 		driver.findElement(By.xpath("//*[@id='submit_login']/div/div[4]/button")).click();
 		System.out.println("--------------------Login PSS success.------------------------");
+		Common.waitSec(3);
+		driver.findElement(By.xpath(".//div[@class='rce-pl-20 rce-pr-20 col d-flex flex-column']/div[2]/div[2]/div/div/div[1]/div[2]/button")).click();
 	}
 
 	public void intake(String password) 
