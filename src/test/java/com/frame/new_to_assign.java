@@ -471,6 +471,35 @@ public class new_to_assign {
 		System.out.println("------------------------------Done Assign-----------------------------------");
 		Common.waitSec(5);
 	}
+
+	public void Monkeypox_to_assign() {
+		//compliance
+		driver.findElement(By.xpath(".//*[@name='data[compliance_verification_verified_patient_name]']")).click();
+		driver.findElement(By.xpath(".//*[@name='data[compliance_verification_verified_patient_gender]']")).click();
+		driver.findElement(By.xpath(".//*[@name='data[compliance_verification_verified_patient_dob]']")).click();
+		driver.findElement(By.xpath(".//*[@name='data[compliance_verification_verified_patient_state]']")).click();
+		driver.findElement(By.xpath("/html/body/div/div[5]/div[3]/div[2]/div/div/div/div[1]/div[5]/div[1]/div[1]/label/input")).click();
+		driver.findElement(By.xpath("/html/body/div/div[5]/div[3]/div[2]/div/div/div/div[1]/div[6]/div[1]/div[1]/label/input")).click();
+		driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+		Common.waitSec(2);
+		driver.findElement(By.xpath(".//button[text()='Create new']")).click();
+		Common.waitSec(5);
+
+		//selected provider
+		System.out.println("Select Provider");
+		Actions action = new Actions(driver);
+		driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/div[4]/div/div/div/div[9]/div/div/div/div[1]/div[2]/div/input")).sendKeys("Dac");
+		Common.waitSec(3);
+		action.sendKeys(Keys.ENTER).build().perform();
+		Common.waitSec(2);
+		action.sendKeys(Keys.ENTER).build().perform();
+		Common.waitSec(2);
+		driver.findElement(By.xpath(".//div[text()='Assign']")).click();
+		Common.waitSec(2);
+		action.sendKeys(Keys.ENTER).build().perform();
+		System.out.println("------------------------------Done Assign-----------------------------------");
+		Common.waitSec(5);
+	}
 }
 
 

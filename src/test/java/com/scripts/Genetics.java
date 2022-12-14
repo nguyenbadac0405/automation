@@ -19,6 +19,7 @@ import com.frame.log_out;
 import com.frame.login;
 import com.frame.new_to_assign;
 import com.frame.search_case;
+import com.frame.assign_to_approved;
 
 public class Genetics extends DriverFactory {
 	login login;
@@ -240,5 +241,115 @@ public class Genetics extends DriverFactory {
 		else {
 			excel.setCellData("fail", 6, 1);
 		}
+	}
+
+	@Test
+	public void genetics() throws  Exception {
+		//create new case
+		Actions action = new Actions(driver);
+		excel.setExcelFile("src/test/resources/Genetics.xlsx", "Sheet1");
+		String business = excel.getCellData("business", 1);
+		String vertical = excel.getCellData("vertical", 1);
+		String MG = excel.getCellData("MG", 1);
+		String lab = excel.getCellData("lab", 1);
+		String type = excel.getCellData("type", 1);
+		String first_name = excel.getCellData("first_name", 1);
+		String last_name = excel.getCellData("last_name", 1);
+		String DOB = excel.getCellData("DOB", 1);
+		String medicare_ID = excel.getCellData("medicare_ID", 1);
+		String zipcode = excel.getCellData("zipcode", 1);
+		login.URL_intake();
+
+		login.intake("123456");
+		Common.waitSec(6);
+		new_case_intake.Genetics_create_new_case(business, vertical, MG, lab, type, first_name, last_name, DOB, medicare_ID, zipcode);
+		Common.waitSec(3);
+
+		String id = to_assign.find_id();
+		excel.setCellData(id, 1, 0);
+		System.out.println("Case-ID: "+id);
+		excel.setExcelFile("src/test/resources/Genetics.xlsx", "Sheet2");
+
+		//new to assign
+		logout.logout();
+		Common.waitSec(5);
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_assign.Genetics_to_assign();
+		Common.waitSec(5);
+
+		//assign to approve 1
+		logout.logout();
+		Common.waitSec(5);
+
+		login.provider("123456");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+		billing.billing();
+		Common.waitSec(3);
+
+		to_approved.Genetics_to_approve1(lab, type);
+		Common.waitSec(3);
+
+		//approve 1 to AFU
+		logout.logout();
+		Common.waitSec(5);
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_AFU.Genetics_to_RTS();
+		Common.waitSec(3);
+
+		logout.logout();
+		Common.waitSec(5);
+		login.intake("123456");
+		Common.waitSec(5);
+		search.search_from_intake(id);
+		Common.waitSec(5);
+		to_AFU.Genetics_to_Awating_Result();
+		Common.waitSec(5);
+		logout.logout();
+		Common.waitSec(5);
+
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_AFU.Genetics_to_AFU();
+		Common.waitSec(5);
+
+		//AFU to approve 3
+
+		login.provider("123456");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_approved.to_approve3();
+		Common.waitSec(3);
+
+		// approved 3 to complete
+		logout.logout();
+		Common.waitSec(5);
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_complete.complete();
+		Common.waitSec(5);
 	}
 }
