@@ -104,7 +104,6 @@ public class assign_to_approved {
         driver.findElement(By.xpath(".//span[text()=\"Patient's Medical History\"]")).click();
         Common.waitSec(2);
         driver.findElement(By.xpath("//*[@name='data[patient_personal_history_progress_note_phmx]']")).sendKeys("test");
-//		System.out.println("check 2");
         driver.findElement(By.xpath("//*[@name='data[patient_personal_history_progress_note_confirm_doctor]']"))
                 .click();
         Common.waitSec(1);
@@ -116,25 +115,20 @@ public class assign_to_approved {
         driver.findElement(By.xpath("//*[@name='data[medication_confirm_patient]']")).sendKeys("test");
         driver.findElement(By.xpath("//*[@name='data[medication_note]']")).sendKeys("test");
         driver.findElement(By.xpath("//input[@name='shipped']")).click();
-//		System.out.println("check 3");
         driver.findElement(By.xpath(".//button[text()='Save']")).click();
         Common.waitSec(3);
 
         // Diagnosis
         System.out.println("Provider set Diagnosis");
         driver.findElement(By.xpath(".//span[text()='Diagnosis']")).click();
-//		System.out.println("check 4");
+
         Common.waitSec(2);
-//		driver.findElement(By.xpath("//*[@value='2 Year License']")).click();
-        driver.findElement(
-                        By.xpath("//*[@id=\"patient-dashboard\"]/div[5]/div[3]/div[4]/div[2]/div/div[2]/div[1]/input"))
+        driver.findElement(By.xpath("//*[@id=\"patient-dashboard\"]/div[5]/div[3]/div[4]/div[2]/div/div[2]/div[1]/input"))
                 .sendKeys("a");
         Common.waitSec(3);
-//		System.out.println("check 5");
         driver.findElement(
                         By.xpath("//*[@id=\"patient-dashboard\"]/div[5]/div[3]/div[4]/div[2]/div/div[2]/div[3]/ul/li[1]"))
                 .click();
-//		System.out.println("check 6");
         driver.findElement(By.xpath("//span[text()='Done']")).click();
         Common.waitSec(2);
         driver.findElement(By.xpath(".//button[text()='Save']")).click();
@@ -987,6 +981,76 @@ public class assign_to_approved {
         driver.findElement(By.xpath("//*[@name='data[assessment_plan_hpi]']")).sendKeys("There is all HPI that the provider is setting for you.");
         driver.findElement(By.xpath("//*[@name='data[assessment_plan_plan]']")).sendKeys("There is all plan that the provider is setting for you.");
         Common.waitSec(2);
+        driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+        Common.waitSec(3);
+
+        // approved
+        driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[2]/div[1]/div[3]/div[1]/div[3]/button")).click();
+        Common.waitSec(3);
+        driver.findElement(By.xpath(".//button[text()='Yes']")).click();
+        System.out.println("-------------------------Done Approve----------------------------");
+        Common.waitSec(5);
+
+    }
+
+    public void MDL_diagnosis_to_approve1() {
+        // patient infor
+        Actions actions = new Actions(driver);
+        System.out.println("Check Patient Information");
+        driver.findElement(By.xpath(".//input[@value='No']")).click();
+        Common.waitSec(1);
+        driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+        Common.waitSec(3);
+
+    	//Medical History
+        System.out.println("Check Medical History");
+        driver.findElement(By.xpath(".//span[text()='Medical History']")).click();
+        Common.waitSec(5);
+        driver.findElement(By.xpath(".//*[@name='data[patient_personal_history_progress_note_phmx]']")).sendKeys("test");
+        driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+        Common.waitSec(3);
+
+
+        // Family History
+        System.out.println("Check Family History");
+        driver.findElement(By.xpath(".//span[text()='Family History']")).click();
+        Common.waitSec(3);
+        driver.findElement(By.xpath("//*[@name='data[family_history_member_confirm_doctor]']")).click();
+        driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+        Common.waitSec(3);
+
+        // Diagnosis
+        System.out.println("Set Diagnosis");
+        WebElement diagnosis = driver.findElement(By.xpath(".//span[text()='Diagnosis']"));
+        actions.moveToElement(diagnosis).click().build().perform();
+        Common.waitSec(2);
+        driver.findElement(By.xpath(".//input[@class='input-search']")).sendKeys("a");
+        Common.waitSec(3);
+        driver.findElement(By.xpath("//*[@id=\"patient-dashboard\"]/div[5]/div[3]/div[4]/div[3]/div/div[2]/div[3]/ul/li[1]")).click();
+        driver.findElement(By.xpath("//span[text()='Done']")).click();
+        Common.waitSec(2);
+        driver.findElement(By.xpath(".//button[text()='Save']")).click();
+        Common.waitSec(5);
+
+        // medication
+        System.out.println("Check Medications");
+        driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[3]/div[3]/div[2]/div[4]/label/input")).click();
+        WebElement element = driver.findElement(By.xpath(".//button[text()='Save']"));
+
+        actions.moveToElement(element).click().build().perform();
+        Common.waitSec(3);
+
+        // review of systems
+        System.out.println("Review of Systems");
+        driver.findElement(By.xpath("//*[@name='data[review_of_system_confirm]']")).click();
+        driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+        Common.waitSec(5);
+
+        // assessment & plan
+        System.out.println("Set Assessment & Plan");
+        driver.findElement(By.xpath("//*[@name='data[assessment_plan_hpi]']")).sendKeys("There is all HPI that the provider is setting for you.");
+        driver.findElement(By.xpath("//*[@name='data[assessment_plan_plan]']")).sendKeys("There is all plan that the provider is setting for you.");
+        Common.waitSec(5);
         driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
         Common.waitSec(3);
 

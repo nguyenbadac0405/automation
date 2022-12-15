@@ -500,6 +500,38 @@ public class new_to_assign {
 		System.out.println("------------------------------Done Assign-----------------------------------");
 		Common.waitSec(5);
 	}
+
+	public void MDL_diagnosis_to_assign() {
+		//compliance
+		driver.findElement(By.name("data[compliance_verification_verified_patient_name]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_previously_taken_genetic_test]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_previously_taken_genetic_test_1]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_fulfill_communication]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_willing_test]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_gender]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_dob]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_patient_state]")).click();
+		driver.findElement(By.name("data[compliance_verification_verified_more_product_like][]")).click();
+		driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
+		Common.waitSec(2);
+		driver.findElement(By.xpath(".//button[text()='Create new']")).click();
+		Common.waitSec(3);
+
+		//selected provider
+		System.out.println("Select Provider");
+		Actions action = new Actions(driver);
+		driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/div[4]/div/div/div/div[9]/div/div/div/div[1]/div[2]/div/input")).sendKeys("Dac");
+		Common.waitSec(3);
+		action.sendKeys(Keys.ENTER).build().perform();
+		Common.waitSec(2);
+		action.sendKeys(Keys.ENTER).build().perform();
+		Common.waitSec(2);
+		driver.findElement(By.xpath(".//div[text()='Assign']")).click();
+		Common.waitSec(2);
+		action.sendKeys(Keys.ENTER).build().perform();
+		System.out.println("------------------------------Done Assign-----------------------------------");
+		Common.waitSec(5);
+	}
 }
 
 
