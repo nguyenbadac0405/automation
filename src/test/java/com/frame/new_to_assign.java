@@ -409,7 +409,7 @@ public class new_to_assign {
 		action.sendKeys(Keys.ENTER).build().perform();
 		Common.waitSec(2);
 		action.sendKeys(Keys.ENTER).build().perform();
-		Common.waitSec(2);
+		Common.waitSec(5);
 		driver.findElement(By.xpath(".//div[text()='Assign']")).click();
 		Common.waitSec(1);
 		action.sendKeys(Keys.ENTER).build().perform();

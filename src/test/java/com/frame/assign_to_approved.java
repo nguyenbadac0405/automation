@@ -442,7 +442,7 @@ public class assign_to_approved {
                 System.out.println("Check Family History");
                 WebElement element = driver.findElement(By.xpath(".//span[text()='Family History']"));
                 actions.moveToElement(element).click().build().perform();
-                Common.waitSec(2);
+                Common.waitSec(3);
                 driver.findElement(By.name("data[family_history_member_1_related_health_issue]")).sendKeys("test");
                 driver.findElement(By.xpath("//*[@name='data[family_history_member_confirm_doctor]']")).click();
                 driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
@@ -810,6 +810,8 @@ public class assign_to_approved {
                 .click();
         Common.waitSec(3);
         driver.findElement(By.xpath(".//button[text()='Yes']")).click();
+        Common.waitSec(3);
+        driver.findElement(By.xpath(".//span[text()=' No Follow Up']")).click();
         System.out.println("-------------------------Done Approve----------------------------");
         Common.waitSec(5);
     }
@@ -869,6 +871,8 @@ public class assign_to_approved {
                 .click();
         Common.waitSec(3);
         driver.findElement(By.xpath(".//button[text()='Yes']")).click();
+        Common.waitSec(3);
+        driver.findElement(By.xpath(".//span[text()=' No Follow Up']")).click();
         System.out.println("-------------------------Done Approve----------------------------");
         Common.waitSec(5);
     }
