@@ -204,12 +204,12 @@ public class assign_to_approved {
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[17]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[18]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[19]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[20]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[21]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[22]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[23]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[24]/div[1]/div[2]/label/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[25]/div[1]/div[2]/label/input")).click();
-        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[26]/div[1]/div[2]/label/input")).click();
         Common.waitSec(3);
         driver.findElement(By.name("data[screening_questionnaire_confirm1]")).click();
         driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
@@ -220,17 +220,18 @@ public class assign_to_approved {
         driver.findElement(By.xpath("//*[@name='data[family_history_member_confirm_doctor]']")).click();
         driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
         Common.waitSec(3);
-        // Diagnosis
-        System.out.println("Set Diagnosis");
-        driver.findElement(By.xpath(".//div[text()='G40.209']")).click();
-        driver.findElement(By.xpath(".//div[text()='G40.309']")).click();
-        driver.findElement(By.xpath(".//button[text()='Save']")).click();
-        Common.waitSec(5);
 
         // medication
         System.out.println("Check Medications");
         driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[3]/div[3]/div[2]/div[4]/label/input"))
                 .click();
+        driver.findElement(By.xpath(".//button[text()='Save']")).click();
+        Common.waitSec(5);
+
+        // Diagnosis
+        System.out.println("Set Diagnosis");
+        driver.findElement(By.xpath(".//div[text()='F44.5']")).click();
+        driver.findElement(By.xpath(".//div[text()='R25.1']")).click();
         driver.findElement(By.xpath(".//button[text()='Save']")).click();
         Common.waitSec(5);
 
@@ -253,6 +254,8 @@ public class assign_to_approved {
                 .click();
         Common.waitSec(3);
         driver.findElement(By.xpath(".//button[text()='Yes']")).click();
+        Common.waitSec(2);
+        driver.findElement(By.xpath(".//span[text()=' No Follow Up']")).click();
         System.out.println("-------------------------Done Approve----------------------------");
         Common.waitSec(5);
 

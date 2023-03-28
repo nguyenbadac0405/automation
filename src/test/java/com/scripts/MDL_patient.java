@@ -1,23 +1,10 @@
 package com.scripts;
 
+import com.frame.*;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import com.Common;
-import com.frame.ExcelHelpers;
-import com.frame.GetDriver;
-import com.frame.approved_to_complete;
-import com.frame.assign_provider;
-import com.frame.create_new_case_intake;
-import com.frame.create_new_case_patient;
-import com.frame.getInfo;
-import com.frame.log_out;
-import com.frame.login;
-import com.frame.login_patient_MDL;
-import com.frame.login_patient_MDR;
-import com.frame.new_to_assign;
-import com.frame.search_case;
-import com.frame.assign_to_approved;
 
 public class MDL_patient extends DriverFactory {
 
