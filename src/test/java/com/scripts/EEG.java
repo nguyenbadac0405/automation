@@ -153,6 +153,82 @@ public class EEG extends DriverFactory{
 		to_complete.complete();
 		Common.waitSec(5);
 	}
+
+	@Test
+	public void EEG() throws Exception {
+
+		//new
+		excel.setExcelFile("src/test/resources/EEG.xlsx", "Sheet1");
+		login.URL_intake();
+		login.intake("123456");
+		Common.waitSec(5);
+
+		new_case_intake.EEG_create_new_case();
+		Common.waitSec(3);
+
+		String id = to_assign.find_id();
+		excel.setCellData(id, 1, 0);
+		System.out.println("Case-ID: "+id);
+
+		logout.logout();
+		Common.waitSec(5);
+
+		//assign
+		login.URL_intake();
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_assign.EEG_to_assign();
+		Common.waitSec(5);
+
+		logout.logout();
+		Common.waitSec(5);
+
+		//approve 1
+		login.URL_intake();
+		login.provider("123456");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		billing.billing();
+		Common.waitSec(3);
+
+		to_approved.EEG_to_approve1();
+		Common.waitSec(3);
+
+		logout.logout();
+		Common.waitSec(5);
+
+		//assign follow up
+		login.URL_intake();
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_AFU.EEG_to_assign_follow_up();
+		Common.waitSec(3);
+
+		logout.logout();
+		Common.waitSec(5);
+
+		//complete
+		login.URL_intake();
+		login.pss("111111");
+		Common.waitSec(5);
+
+		search.search_from_intake(id);
+		Common.waitSec(5);
+
+		to_complete.complete();
+		Common.waitSec(5);
+	}
 	
 	
 }

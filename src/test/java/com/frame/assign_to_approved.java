@@ -194,64 +194,24 @@ public class assign_to_approved {
 
 //		//Screen questionnaire
         System.out.println("Check Screening Questionnaire");
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[8]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[9]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[10]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[11]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[12]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[13]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[14]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[15]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[16]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[17]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[18]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[21]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[22]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[23]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[24]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[25]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[26]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[27]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(
-                        By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[28]/div[1]/div[2]/label/input"))
-                .click();
-        driver.findElement(By.xpath(".//*[@name='data[screening_questionnaire_confirm1]']")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[8]/div[1]/div[2]/label/input")).click(); //1
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[9]/div[1]/div[2]/label/input")).click(); //2
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[10]/div[1]/div[2]/label/input")).click();//3
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[11]/div[1]/div[2]/label/input")).click();//4
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[12]/div[1]/div[2]/label/input")).click();//5
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[15]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[16]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[17]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[18]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[19]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[21]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[22]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[23]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[24]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[25]/div[1]/div[2]/label/input")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[3]/div[3]/div/div/div[1]/div[26]/div[1]/div[2]/label/input")).click();
+        Common.waitSec(3);
+        driver.findElement(By.name("data[screening_questionnaire_confirm1]")).click();
         driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
         Common.waitSec(5);
 

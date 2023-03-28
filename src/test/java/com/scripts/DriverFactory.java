@@ -5,6 +5,7 @@ import java.time.Duration;
 import com.frame.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -30,7 +31,10 @@ public class DriverFactory {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+
 		System.setProperty("webdriver.chrome.driver","E:\\chromedriver_win32\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();	

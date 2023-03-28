@@ -215,7 +215,7 @@ public class Genetics extends DriverFactory {
 		else {
 			excel.setCellData("fail", 5, 1);
 		}
-		fpc.FPC();
+//		fpc.FPC();
 		Common.waitSec(3);
 	}
 	
@@ -331,6 +331,8 @@ public class Genetics extends DriverFactory {
 
 		//AFU to approve 3
 
+		logout.logout();
+		Common.waitSec(5);
 		login.provider("123456");
 		Common.waitSec(5);
 
