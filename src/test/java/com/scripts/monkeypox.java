@@ -93,8 +93,8 @@ public class monkeypox extends DriverFactory {
         search.search_from_intake(id);
         Common.waitSec(5);
 
-        billing.billing();
-        Common.waitSec(3);
+//        billing.billing();  //remove billing
+//        Common.waitSec(3);
 
         to_approved.monkeypox_to_approve1();
         Common.waitSec(3);
@@ -163,8 +163,8 @@ public class monkeypox extends DriverFactory {
         search.search_from_intake(id);
         Common.waitSec(5);
 
-        billing.billing();
-        Common.waitSec(3);
+//        billing.billing();
+//        Common.waitSec(3);
 
         to_approved.monkeypox_to_approve1();
         Common.waitSec(3);

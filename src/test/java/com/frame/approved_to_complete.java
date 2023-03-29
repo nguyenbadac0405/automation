@@ -64,12 +64,13 @@ public class approved_to_complete {
         chooseFile.sendKeys("C:/Users/dac/Downloads/file.pdf");
         Common.waitSec(5);
 
-        driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[2]/div[8]/div/div[2]/div[2]/div/div[2]/div/div")).click();
+        WebElement file = driver.findElement(By.xpath("/html/body/div/div[5]/div[2]/div[7]/div/div[2]/div[2]/div[1]/div[2]/div/div/div[1]"));
+        action.moveToElement(file).click().build().perform();
         Common.waitSec(1);
         action.sendKeys(Keys.ENTER).build().perform();
         Common.waitSec(5);
 
-        WebElement sendmail = driver.findElement(By.xpath("//*[@id=\"patient-dashboard\"]/div[5]/div[2]/div[4]/div[1]/div/button"));
+        WebElement sendmail = driver.findElement(By.xpath("//*[@id='patient-dashboard']/div[5]/div[2]/div[3]/div/div/button"));
         action.moveToElement(sendmail).click().build().perform();
         Common.waitSec(2);
         driver.findElement(By.xpath(".//input[@placeholder='Email address']")).sendKeys("dac@gkim.vn");
