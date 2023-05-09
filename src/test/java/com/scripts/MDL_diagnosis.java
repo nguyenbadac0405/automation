@@ -165,7 +165,7 @@ public class MDL_diagnosis extends DriverFactory {
         search.search_from_intake(id);
         Common.waitSec(5);
 
-        billing.billing();
+//        billing.billing();
         Common.waitSec(3);
 
         to_approved.MDL_diagnosis_to_approve1();

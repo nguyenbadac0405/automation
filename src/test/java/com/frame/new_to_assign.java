@@ -205,7 +205,7 @@ public class new_to_assign {
 	}
 	
 	public static String find_id() {
-		WebElement id_case = driver.findElement(By.xpath("//*[@id='textCopied']"));
+		WebElement id_case = driver.findElement(By.xpath("//*[@id='casenameID']"));
 //		System.out.println(id_case.getAttribute("value"));
 //		System.out.println("1");
 		
@@ -503,6 +503,7 @@ public class new_to_assign {
 
 	public void MDL_diagnosis_to_assign() {
 		//compliance
+		Actions action = new Actions(driver);
 		driver.findElement(By.name("data[compliance_verification_verified_patient_name]")).click();
 		driver.findElement(By.name("data[compliance_verification_verified_patient_previously_taken_genetic_test]")).click();
 		driver.findElement(By.name("data[compliance_verification_verified_patient_previously_taken_genetic_test_1]")).click();
@@ -514,20 +515,22 @@ public class new_to_assign {
 		driver.findElement(By.name("data[compliance_verification_verified_more_product_like][]")).click();
 		driver.findElement(By.xpath("//*[@name='data[submit]']")).click();
 		Common.waitSec(2);
-		driver.findElement(By.xpath(".//button[text()='Create new']")).click();
+		action.sendKeys(Keys.ENTER).build().perform();
+//		Common.waitSec(2);
+//		driver.findElement(By.xpath(".//button[text()='Create new']")).click();
 		Common.waitSec(3);
 
 		//selected provider
 		System.out.println("Select Provider");
-		Actions action = new Actions(driver);
+//		Actions action = new Actions(driver);
 		driver.findElement(By.xpath("/html/body/div[1]/div[5]/div[2]/div[4]/div/div/div/div[9]/div/div/div/div[1]/div[2]/div/input")).sendKeys("Dac");
 		Common.waitSec(3);
 		action.sendKeys(Keys.ENTER).build().perform();
 		Common.waitSec(2);
 		action.sendKeys(Keys.ENTER).build().perform();
-		Common.waitSec(2);
+		Common.waitSec(5);
 		driver.findElement(By.xpath(".//div[text()='Assign']")).click();
-		Common.waitSec(2);
+		Common.waitSec(5);
 		action.sendKeys(Keys.ENTER).build().perform();
 		System.out.println("------------------------------Done Assign-----------------------------------");
 		Common.waitSec(5);

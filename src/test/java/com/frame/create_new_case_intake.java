@@ -589,15 +589,15 @@ public class create_new_case_intake {
 		Common.waitSec(2);
 
 		// set MG
-		driver.findElement(By.xpath("//*[@id='react-select-8-input']")).sendKeys(MG, Keys.ENTER);
+		driver.findElement(By.xpath("//*[@id='react-select-7-input']")).sendKeys(MG, Keys.ENTER);
 		Common.waitSec(2);
 
 		// set service type
-		driver.findElement(By.xpath("//*[@id='react-select-10-input']")).sendKeys(type, Keys.ENTER);
+		driver.findElement(By.xpath("//*[@id='react-select-9-input']")).sendKeys(type, Keys.ENTER);
 		Common.waitSec(3);
 
 		// set state
-		driver.findElement(By.xpath("//*[@id='react-select-11-input']")).sendKeys(lab, Keys.ENTER);
+		driver.findElement(By.xpath("//*[@id='react-select-10-input']")).sendKeys(lab, Keys.ENTER);
 		System.out.println("Done Business and Vertical");
 		Common.waitSec(2);
 
